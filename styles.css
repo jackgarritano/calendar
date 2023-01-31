@@ -152,7 +152,7 @@ body{
  body {
 	 display: flex;
 }
- .mobile {
+ .calendarContainer {
     background-color: #2D2E33;
     color:#97989D;
 	 height: 320px;

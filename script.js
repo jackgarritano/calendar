@@ -4,11 +4,31 @@ var cal;
 const d = new Date();
 var year = d.getFullYear();
 var month = d.getMonth() - 1;
-const calendar = document.getElementsByClassName("calendar")[0];
-const calContainer = document.getElementsByClassName("cal__container")[0];
-let dateInput = document.getElementById("start");
-const inputContainer = document.getElementsByClassName('inputs')[0];
-const clearContainer = document.getElementsByClassName('clear__btn')[0];
+
+const body = document.querySelector('body');
+const calendarHolder = document.createElement('div');
+calendarHolder.classList.add('calendarContainer');
+const calendar = document.createElement('div');
+calendar.classList.add('calendar');
+const inputContainer = document.createElement('div');
+inputContainer.classList.add('inputs');
+const today = document.createElement('div');
+today.classList.add('today');
+today.textContent = 'Today';
+const tomorrow = document.createElement('div');
+tomorrow.classList.add('tomorrow');
+tomorrow.textContent = "Tomorrow";
+const calContainer = document.createElement('div');
+calContainer.classList.add('cal__container');
+
+
+/*inputContainer.append(today);
+inputContainer.append(tomorrow);
+calendar.append(inputContainer);
+calendar.append(calContainer);
+calendarHolder.append(calendar);
+body.append(calendarHolder);*/
+
 var style = false;
 const months = [
   "January",
@@ -47,7 +67,7 @@ Pikka.date({
   mode: "multiple" // single or multiple
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
     monthsToShow = 4;
   for (let i = 1; i <= monthsToShow; i++) {
     month = month + 1;
@@ -68,12 +88,18 @@ function clearCal() {
 
 // Logic for calendar
 function buildCal() {
+  inputContainer.append(today);
+  inputContainer.append(tomorrow);
+  calendar.append(inputContainer);
+  calendar.append(calContainer);
+  calendarHolder.append(calendar);
+  body.append(calendarHolder);
+
   let monthControls = document.createElement("div");
   monthControls.classList.add('month__controls');
   let newMonth = document.createElement("div");
   let monthTitle = document.createElement("span");
   let monthText = document.createTextNode(months[month] + " " + year);
-  let rArrow,lArrow;
   newMonth.appendChild(monthControls);
   
   monthTitle.appendChild(monthText);
@@ -154,7 +180,7 @@ function addMoreMonths() {
   moreMonths.addEventListener("click", reconcileMonths);
   let observer = new IntersectionObserver(reconcileMonths, {
     root:document.querySelector('.calendar'),
-    rootMargin:'30px',
+    rootMargin:'50px',
   });
   observer.observe(moreMonths);
   calContainer.appendChild(moreMonths);
