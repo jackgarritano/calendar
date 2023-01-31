@@ -1,5 +1,3 @@
-//todo: add (scroll) next to 2nd month rendered, which transitions to opacity 0 as user scrolls down
-//todo: change border color and font color of load more months button
 //todo: add a function to pre-populate selected date on open if a date was previously selected and render the month of the selected date instead of current month
 //todo: add a prepend months method for use in the above case
 var monthsToShow, primary, accent, mode;
@@ -23,7 +21,16 @@ tomorrow.classList.add('tomorrow');
 tomorrow.textContent = "Tomorrow";
 const calContainer = document.createElement('div');
 calContainer.classList.add('cal__container');
+const scrollDown = document.createElement('span');
+//scrollDown.classList.add('scrollDown');
+scrollDown.textContent = '(scroll down)';
 
+inputContainer.append(today);
+  inputContainer.append(tomorrow);
+  calendar.append(inputContainer);
+  calendar.append(calContainer);
+  calendarHolder.append(calendar);
+  body.append(calendarHolder);
 
 /*inputContainer.append(today);
 inputContainer.append(tomorrow);
@@ -78,7 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
       month = 0;
       year = year + 1;
     }
-    buildCal();
+    if(i == 2){
+      buildCal(true);
+    }
+    else{
+    buildCal(false);
+    }
   }
     addMoreMonths();
 });
@@ -90,13 +102,8 @@ function clearCal() {
 }
 
 // Logic for calendar
-function buildCal() {
-  inputContainer.append(today);
-  inputContainer.append(tomorrow);
-  calendar.append(inputContainer);
-  calendar.append(calContainer);
-  calendarHolder.append(calendar);
-  body.append(calendarHolder);
+function buildCal(is2ndMonth) {
+  
 
   let monthControls = document.createElement("div");
   monthControls.classList.add('month__controls');
@@ -152,12 +159,26 @@ function buildCal() {
   let monthTitleCont = document.createElement("div");
   monthTitleCont.appendChild(monthTitle);
   monthControls.appendChild(monthTitleCont); 
+  if(is2ndMonth){
+    monthControls.childNodes[0].appendChild(scrollDown);
+  }
   newMonth.appendChild(cal);
   calContainer.appendChild(newMonth);
   if (month == new Date().getMonth() && year == new Date().getFullYear()) {
     highlightToday();
   }
   
+  function scrollDisappear(){
+    console.log(calContainer.scrollTop);
+    let scroll = calContainer.scrollTop || 0;
+    scrollDown.style.opacity = 1-scroll/237;
+    if(scroll >= 237){
+      calContainer.removeEventListener('scroll', scrollDisappear);
+      scrollDown.remove();
+  }
+  }
+calContainer.addEventListener('scroll', scrollDisappear);
+
   // function to add event listeners to each table cell
   initCells(cal);
 }
@@ -171,7 +192,7 @@ function addMoreMonths() {
             month = 0;
             year = year + 1;
           }
-          buildCal();
+          buildCal(false);
         }
         let moreMonthsCurrent = document.getElementsByClassName("more__months")[0];
         moreMonthsCurrent.remove();

@@ -43,8 +43,15 @@ body{
  .month {
 	 margin-top: 5px;
 }
+.month__controls > div{
+	display:flex;
+	justify-content:space-between;
+}
  .month span {
 	 font-size: 14px;
+}
+.month__controls span:first-of-type{
+	color:#DCDDDE;
 }
  table {
 	 border-collapse: collapse;
