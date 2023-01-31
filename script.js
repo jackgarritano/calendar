@@ -1,4 +1,7 @@
-//search for 'CHANGE' to see notes about updated code
+//todo: add (scroll) next to 2nd month rendered, which transitions to opacity 0 as user scrolls down
+//todo: change border color and font color of load more months button
+//todo: add a function to pre-populate selected date on open if a date was previously selected and render the month of the selected date instead of current month
+//todo: add a prepend months method for use in the above case
 var monthsToShow, primary, accent, mode;
 var cal;
 const d = new Date();

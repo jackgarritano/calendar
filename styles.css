@@ -41,14 +41,14 @@ body{
 	 color: #fff !important;
 }
  .month {
-	 margin-top: 10px;
+	 margin-top: 5px;
 }
  .month span {
 	 font-size: 14px;
 }
  table {
 	 border-collapse: collapse;
-	 margin-top: 10px;
+	 margin-top: 5px;
 	 width: calc(100% - 1px);
 }
  tr:first-of-type td {
@@ -130,7 +130,7 @@ body{
 	 text-align: center;
 	 padding: 10px 15px;
 	 border: 1px solid #ededed;
-	 margin-top: 10px;
+	 margin-top: 5px;
 	 cursor: pointer;
 	 border-radius: 5px;
 	 border: 1px solid #ff5a5f;
