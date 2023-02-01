@@ -1,3 +1,4 @@
+//todo: fix inconsistent spacing above and below 'today' and 'tomorrow' buttons
 //todo: add a function to pre-populate selected date on open if a date was previously selected and render the month of the selected date instead of current month
 //todo: add a prepend months method for use in the above case
 var monthsToShow, primary, accent, mode;
@@ -171,8 +172,8 @@ function buildCal(is2ndMonth) {
   function scrollDisappear(){
     console.log(calContainer.scrollTop);
     let scroll = calContainer.scrollTop || 0;
-    scrollDown.style.opacity = 1-scroll/237;
-    if(scroll >= 237){
+    scrollDown.style.opacity = 1-scroll/150;
+    if(scroll >= 150){
       calContainer.removeEventListener('scroll', scrollDisappear);
       scrollDown.remove();
   }
