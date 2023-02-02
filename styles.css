@@ -5,9 +5,16 @@
 body{
     background-color: #37393e;
 }
- ::-webkit-scrollbar {
+.cal__container::-webkit-scrollbar {
 	 display: none;
 }
+.cal__container::-moz-scrollbar {
+	display: none;
+  }
+  
+  .cal__container::-ms-scrollbar {
+	display: none;
+  }
  .calendar {
      height: 100%;
 	 border-spacing: 1px;
