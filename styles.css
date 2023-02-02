@@ -4,6 +4,7 @@
 }
 body{
     background-color: #37393e;
+	display:flex;
 }
 .cal__container::-webkit-scrollbar {
 	 display: none;
@@ -34,10 +35,6 @@ body{
 	 margin-bottom: 10px;
 	 display: flex;
 	 margin-bottom: 2rem 0px;
-}
- .cal__controls span {
-	 padding: 5px;
-	 cursor: pointer;
 }
  .selected {
 	 background-color: #f99092 !important;
@@ -120,23 +117,9 @@ body{
      border-radius: 3px;
 
 }
-
 .inputs div:hover {
     background-color: #41444A;
     cursor: pointer;
-}
-
- .clear {
-	 grid-column-start: 1;
-	 grid-column-end: 3;
-	 margin-top: 10px;
-	 background-color: #e5e5e5;
-	 border-radius: 3px;
-	 border: none;
-	 display: block;
-	 color: #000;
-	 margin: 10px auto;
-	 cursor: pointer;
 }
  .more__months {
 	 display: block;
@@ -160,10 +143,7 @@ body{
 	 border: none !important;
 	 border-radius: 50%; /*making this 0% solves it but isn't elegant*/
 }
- body {
-	 display: flex;
-}
- .calendarContainer {
+ .calendarHolder {
     background-color: #2D2E33;
     color:#97989D;
 	 height: 320px;
@@ -171,72 +151,6 @@ body{
 	 margin: auto;
 	 border: 1px solid #5d5d5d;
 	 position: relative;
-}
- .color__container {
-	 position: absolute;
-	 top: 700px;
-	 width: 150px;
-	 display: flex;
-	 left: calc(50% - 75px);
-}
- .shapes__container {
-	 position: absolute;
-	 top: 750px;
-	 width: 150px;
-	 display: flex;
-	 left: calc(50% - 75px);
-}
- .shapes {
-	 margin: auto;
-}
- .shapes ul {
-	 padding: 0;
-	 margin: 0;
-	 list-style-type: none;
-}
- .shapes li {
-	 width: 40px;
-	 height: 40px;
-	 display: inline-block;
-	 cursor: pointer;
-	 border: 1px solid #5a5a5a;
-}
- .shapes li:nth-of-type(1) {
-	 border-radius: 50%;
-}
- .shapes li:nth-of-type(2) {
-	 border-radius: 0;
-}
- .colors {
-	 margin: auto;
-}
- .colors ul {
-	 padding: 0;
-	 margin: 0;
-	 list-style-type: none;
-}
- .colors li {
-	 width: 40px;
-	 height: 40px;
-	 border-radius: 50%;
-	 display: inline-block;
-	 cursor: pointer;
-}
- .colors li:nth-of-type(1) {
-	 background-color: #914669;
-}
- .colors li:nth-of-type(2) {
-	 background-color: #00a699;
-}
- .colors li:nth-of-type(3) {
-	 background-color: #ff5a5f;
-}
- .clear__btn {
-	 display: flex;
-	 height: 15px;
-}
- .clear__btn .clear {
-	 display: block;
 }
 .todaysDate{
     position:relative;

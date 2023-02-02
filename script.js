@@ -9,7 +9,7 @@ var month = d.getMonth() - 1;
 
 const body = document.querySelector('body');
 const calendarHolder = document.createElement('div');
-calendarHolder.classList.add('calendarContainer');
+calendarHolder.classList.add('calendarHolder');
 const calendar = document.createElement('div');
 calendar.classList.add('calendar');
 const inputContainer = document.createElement('div');
